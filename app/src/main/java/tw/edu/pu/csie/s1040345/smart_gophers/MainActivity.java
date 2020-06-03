@@ -54,4 +54,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    //正常退出
+    protected void onDestroy(){
+        super.onDestroy();
+        System.exit(0);
+    }
+
 }

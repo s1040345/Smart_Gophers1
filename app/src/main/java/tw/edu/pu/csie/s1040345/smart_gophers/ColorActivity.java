@@ -35,9 +35,7 @@ public class ColorActivity extends AppCompatActivity {
                 Intent main2ActivityIntent = new Intent(ColorActivity.this, menuActivity.class);
                 startActivity(main2ActivityIntent);
                 break;
-            case R.id.out:
-                Toast.makeText(this, "You are exit", Toast.LENGTH_SHORT).show();
-                break;
+
             default:
         }
 
@@ -61,8 +59,6 @@ public class ColorActivity extends AppCompatActivity {
                 startActivity(main2ActivityIntent);
             }
         });
-
-
     }
 
     //建立清單

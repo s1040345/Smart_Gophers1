@@ -28,14 +28,12 @@ public class GamelistActivity extends AppCompatActivity {
         //實現清單監聽
         switch (item.getItemId()) {
             case R.id.about:
-                Toast.makeText(this, "About us.建逢害羞.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "About us", Toast.LENGTH_SHORT).show();
 
                 Intent main2ActivityIntent = new Intent(GamelistActivity.this, menuActivity.class);
                 startActivity(main2ActivityIntent);
                 break;
-            case R.id.out:
-                Toast.makeText(this, "You are exit", Toast.LENGTH_SHORT).show();
-                break;
+
             default:
         }
         return super.onOptionsItemSelected(item);
@@ -76,4 +74,26 @@ public class GamelistActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu,menu);
         return super.onCreateOptionsMenu(menu);
     }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode==KeyEvent.KEYCODE_BACK){
+            AlertDialog.Builder builder=new AlertDialog.Builder(this);
+            builder.setTitle("Reminder");
+            builder.setMessage("Do you wanna exit?");
+
+            //设置确定按钮
+            builder.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });
+            //设置取消按钮
+            builder.setPositiveButton("Wait",null);
+            //显示提示框
+            builder.show();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
 }
